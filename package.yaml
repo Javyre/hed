@@ -1,0 +1,49 @@
+name:                hed
+version:             0.1.0.0
+github:              "javyre/hed"
+license:             BSD3
+author:              "Javier A. Pollak"
+maintainer:          "javi.po.123@gmail.com"
+copyright:           "2019 Javier A. Pollak"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            editor
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/javyre/hed#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- vty >= 5.25 && < 6
+
+library:
+  source-dirs: src
+
+executables:
+  hed-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hed
+
+tests:
+  hed-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hed
